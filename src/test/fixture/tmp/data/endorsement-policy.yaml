@@ -1,0 +1,24 @@
+# Copyright (c) 2020 Digital Asset (Switzerland) GmbH and/or its affiliates. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+################################################################################
+
+# 2 of any msp
+
+identities:
+    admin1: {"role": {"name": "admin", "mspId": "Org1MSP"}}
+    member1: {"role": {"name": "member", "mspId": "Org1MSP"}}
+    admin2: {"role": {"name": "admin", "mspId": "Org2MSP"}}
+    member2: {"role": {"name": "member", "mspId": "Org2MSP"}}
+
+
+policy:
+    1-of:
+        - 1-of:
+            - signed-by: "admin1"
+            - signed-by: "member1"
+        - 1-of:
+            - signed-by: "admin2"
+            - signed-by: "member2"
+
+
